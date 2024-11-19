@@ -50,6 +50,17 @@ app.get("/listings/new", (req, res) => {
     res.render("listings/new");
 });
 
+// Create Route - Handle Form Submission
+app.post("/listings", async (req, res) => {
+    try {
+        const newListing = new Listing(req.body);
+        await newListing.save();
+        res.redirect("/listings");
+    } catch (err) {
+        console.error("Error creating listing:", err);
+        res.status(500).send("Error creating listing");
+    }
+});
 
 //show route 
 app.get("/listings/:id", async (req, res) => {
