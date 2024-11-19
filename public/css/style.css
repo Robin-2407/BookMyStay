@@ -1,0 +1,28 @@
+.navbar {
+    height: 5rem;
+    background-color: white;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.navbar-brand h3 {
+    padding-top: 1.1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fe424d;
+}
+
+.fa-hotel {
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link {
+    font-size: 1.2rem !important;
+    color: #222222!important;
+} 

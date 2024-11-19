@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const Listing = require("./models/listings.js");
 const path = require("path");
 const methodOverride = require("method-override");
+const ejsMate = require("ejs-mate");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/BookMyStay";
 
@@ -28,8 +29,12 @@ app.use(express.urlencoded({extended: true}));
 // Serve static files
 app.use(express.static(path.join(__dirname, "public")));
 
+
 // Add this middleware
 app.use(methodOverride("_method"));
+
+// ejs-mate
+app.engine('ejs', ejsMate);
 
 // Routes
 app.get("/", (req, res) => {
@@ -108,6 +113,17 @@ app.get("/listings/:id", async (req, res) => {
     } catch (err) {
         console.error("Error fetching listing:", err);
         res.status(500).send("Unable to fetch listing");
+    }
+});
+
+// Delete Route - Handle Deletion
+app.delete("/listings/:id", async (req, res) => {
+    try {
+        await Listing.findByIdAndDelete(req.params.id);
+        res.redirect("/listings"); // Redirect to the listings page after deletion
+    } catch (err) {
+        console.error("Error deleting listing:", err);
+        res.status(500).send("Error deleting listing");
     }
 });
 
