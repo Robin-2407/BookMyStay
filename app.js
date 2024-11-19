@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const Listing = require("./models/listings.js");
 const path = require("path");
+const methodOverride = require("method-override");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/BookMyStay";
 
@@ -27,6 +28,9 @@ app.use(express.urlencoded({extended: true}));
 // Serve static files
 app.use(express.static(path.join(__dirname, "public")));
 
+// Add this middleware
+app.use(methodOverride("_method"));
+
 // Routes
 app.get("/", (req, res) => {
     res.send("Hii, I am Root");
@@ -50,7 +54,7 @@ app.get("/listings/new", (req, res) => {
     res.render("listings/new");
 });
 
-// Create Route - Handle Form Submission
+// Create Route
 app.post("/listings", async (req, res) => {
     try {
         const newListing = new Listing(req.body);
@@ -59,6 +63,39 @@ app.post("/listings", async (req, res) => {
     } catch (err) {
         console.error("Error creating listing:", err);
         res.status(500).send("Error creating listing");
+    }
+});
+
+
+// Edit Route - Show Edit Form
+app.get("/listings/:id/edit", async (req, res) => {
+    try {
+        console.log("Edit route accessed with ID:", req.params.id);
+        const listing = await Listing.findById(req.params.id);
+        if (!listing) {
+            return res.status(404).send("Listing not found");
+        }
+        res.render("listings/edit", { listing });
+    } catch (err) {
+        console.error("Error fetching listing:", err);
+        res.status(500).send("Error loading edit form");
+    }
+});
+
+// Update Route - Handle Form Submission
+app.put("/listings/:id", async (req, res) => {
+    try {
+        // Handle the amenities array
+        const listingData = req.body;
+        if (listingData.amenities && !Array.isArray(listingData.amenities)) {
+            listingData.amenities = [listingData.amenities];
+        }
+
+        await Listing.findByIdAndUpdate(req.params.id, listingData);
+        res.redirect(`/listings/${req.params.id}`);
+    } catch (err) {
+        console.error("Error updating listing:", err);
+        res.status(500).send("Error updating listing");
     }
 });
 
