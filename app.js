@@ -45,6 +45,12 @@ app.get("/listings", async (req, res) => {
 });
 
 
+// new route
+app.get("/listings/new", (req, res) => {
+    res.render("listings/new");
+});
+
+
 //show route 
 app.get("/listings/:id", async (req, res) => {
     let {id} = req.params;
@@ -56,6 +62,9 @@ app.get("/listings/:id", async (req, res) => {
         res.status(500).send("Unable to fetch listing");
     }
 });
+
+
+
 
 // Uncomment for testing listing creation
 // app.get("/testListing", async (req, res) => {

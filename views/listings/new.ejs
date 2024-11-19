@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Listing</title>
+</head>
+<body>
+    <h3>Create New Listing</h3>
+    <form method="POST" action="/listings">
+        <div>
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" required>
+        </div>
+        <div>
+            <label for="description">Description:</label>
+            <textarea name="description" id="description" required></textarea>
+        </div>
+        <div>
+            <label for="image">Image URL:</label>
+            <input type="text" name="image" id="image" required>
+        </div>
+        <div>
+            <label for="price">Price:</label>
+            <input type="number" name="price" id="price" min="0" required>
+        </div>
+        <div>
+            <label for="location">Location:</label>
+            <input type="text" name="location" id="location" required>
+        </div>
+        <div>
+            <label for="country">Country:</label>
+            <input type="text" name="country" id="country" required>
+        </div>
+        <!-- <div>
+            <label for="category">Category:</label>
+            <select name="category" id="category" required>
+                <option value="">Select a category</option>
+                <option value="Rooms">Rooms</option>
+                <option value="Iconic Cities">Iconic Cities</option>
+                <option value="Mountains">Mountains</option>
+                <option value="Castles">Castles</option>
+                <option value="Amazing Pools">Amazing Pools</option>
+                <option value="Camping">Camping</option>
+                <option value="Farms">Farms</option>
+                <option value="Arctic">Arctic</option>
+            </select>
+        </div> -->
+        <!-- <div>
+            <label for="bedrooms">Bedrooms:</label>
+            <input type="number" name="bedrooms" id="bedrooms" min="1" required>
+        </div>
+        <div>
+            <label for="bathrooms">Bathrooms:</label>
+            <input type="number" name="bathrooms" id="bathrooms" min="1" required>
+        </div> -->
+        <!-- <div>
+            <label for="guests">Max Guests:</label>
+            <input type="number" name="guests" id="guests" min="1" required>
+        </div> -->
+        <!-- <div>
+            <h4>Amenities:</h4>
+            <input type="checkbox" id="wifi" name="amenities[]" value="Wifi">
+            <label for="wifi">Wifi</label>
+
+            <input type="checkbox" id="tv" name="amenities[]" value="TV">
+            <label for="tv">TV</label>
+
+            <input type="checkbox" id="kitchen" name="amenities[]" value="Kitchen">
+            <label for="kitchen">Kitchen</label>
+
+            <input type="checkbox" id="ac" name="amenities[]" value="Air Conditioning">
+            <label for="ac">Air Conditioning</label>
+
+            <input type="checkbox" id="parking" name="amenities[]" value="Free Parking">
+            <label for="parking">Free Parking</label>
+
+            <input type="checkbox" id="pool" name="amenities[]" value="Pool">
+            <label for="pool">Pool</label>
+        </div> -->
+        <button type="submit">Add Listing</button>
+    </form>
+    <!-- <a href="/listings">Back to All Listings</a> -->
+</body>
+</html>
