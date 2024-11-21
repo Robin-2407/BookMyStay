@@ -1,69 +1,43 @@
 <% layout("layouts/boilerplate") %>
 <body>
-    <h3>Edit Listing</h3>
-    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
-        <div>
-            <label for="title">Title:</label>
-            <input type="text" name="title" id="title" value="<%= listing.title %>" required>
+    <div class="row offset-2 mt-5">
+        <div class="col-8">
+            <h3>Edit Listing</h3>
+            <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
+                <div>
+                    <label for="title" class="form-label">Title:</label>
+                    <input type="text" name="title" id="title" class="form-control" value="<%= listing.title %>" required>
+                </div>
+                <div>
+                    <label for="description" class="form-label">Description:</label>
+                    <textarea name="description" id="description" class="form-control" required><%= listing.description %></textarea>
+                </div>
+                <div>
+                    <label for="image" class="form-label">Image URL:</label>
+                    <input type="text" name="image" id="image" class="form-control" value="<%= listing.image %>" required>
+                </div>
+                <div>
+                    <label for="price" class="form-label">Price:</label>
+                    <input type="number" name="price" id="price" class="form-control"  value="<%= listing.price %>" min="0" required>
+                </div>
+                <div>
+                    <label for="location" class="form-label">Location:</label>
+                    <input type="text" name="location" id="location" class="form-control"  value="<%= listing.location %>" required>
+                </div>
+                <div>
+                    <label for="country" class="form-label">Country:</label>
+                    <input type="text" name="country" id="country" class="form-control"  value="<%= listing.country %>" required>
+                </div>
+                <br>
+                <div class="edit-link">
+                    <button type="submit" class="btn btn-dark add-btn">Update Listing</button>
+                    <a class="btn btn-dark" href="/listings/<%= listing._id %>">Cancel</a>
+                </div>
+                
+                <br>
+            </form>
+            
         </div>
-        <div>
-            <label for="description">Description:</label>
-            <textarea name="description" id="description" required><%= listing.description %></textarea>
-        </div>
-        <div>
-            <label for="image">Image URL:</label>
-            <input type="text" name="image" id="image" value="<%= listing.image %>" required>
-        </div>
-        <div>
-            <label for="price">Price:</label>
-            <input type="number" name="price" id="price" value="<%= listing.price %>" min="0" required>
-        </div>
-        <div>
-            <label for="location">Location:</label>
-            <input type="text" name="location" id="location" value="<%= listing.location %>" required>
-        </div>
-        <div>
-            <label for="country">Country:</label>
-            <input type="text" name="country" id="country" value="<%= listing.country %>" required>
-        </div>
-        <!-- <div>
-            <label for="category">Category:</label>
-            <select name="category" id="category" required>
-                <option value="">Select a category</option>
-                <% const categories=["Rooms", "Iconic Cities" , "Mountains" , "Castles" , "Amazing Pools" , "Camping"
-                    , "Farms" , "Arctic" ]; %>
-                    <% for (let category of categories) { %>
-                        <option value="<%= category %>" <%=listing.category===category ? 'selected' : '' %>><%= category
-                                %>
-                        </option>
-                        <% } %>
-            </select>
-        </div>
-        <div>
-            <label for="bedrooms">Bedrooms:</label>
-            <input type="number" name="bedrooms" id="bedrooms" value="<%= listing.bedrooms %>" min="1" required>
-        </div>
-        <div>
-            <label for="bathrooms">Bathrooms:</label>
-            <input type="number" name="bathrooms" id="bathrooms" value="<%= listing.bathrooms %>" min="1" required>
-        </div>
-        <div>
-            <label for="guests">Max Guests:</label>
-            <input type="number" name="guests" id="guests" value="<%= listing.guests %>" min="1" required>
-        </div>
-        <div>
-            <h4>Amenities:</h4>
-            <% const amenityOptions=["Wifi", "TV" , "Kitchen" , "Air Conditioning" , "Free Parking" , "Pool" ]; %>
-                <% for (let amenity of amenityOptions) { %>
-                    <input type="checkbox" id="<%= amenity.toLowerCase().replace(' ', '-') %>" name="amenities[]"
-                        value="<%= amenity %>" <%=listing.amenities && listing.amenities.includes(amenity) ? 'checked'
-                        : '' %>>
-                    <label for="<%= amenity.toLowerCase().replace(' ', '-') %>">
-                        <%= amenity %>
-                    </label>
-                    <% } %>
-        </div> -->
-        <button type="submit">Update Listing</button>
-    </form>
-    <a href="/listings/<%= listing._id %>">Cancel</a>
+    </div>
+    
 </body>

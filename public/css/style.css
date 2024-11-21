@@ -21,7 +21,6 @@ body {
 /* CONTAINER */
 .container {
     flex: 1; /* Allow the container to grow and take available space */
-    /* min-height: calc(100vh - 8rem); Adjust for footer height */
 }
 
 /* NAVBAR */
@@ -146,3 +145,8 @@ footer {
 }
 
 
+.edit-link {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}

@@ -17,9 +17,17 @@ async function main() {
 }
 
 const initDB = async () => {
-    Listing.deleteMany({});
-    await Listing.insertMany(initData.data);
-    console.log("Data was Initialized")
-}
+    try {
+        // Clear the existing data
+        await Listing.deleteMany({});
+        console.log("Existing data deleted");
+
+        // Insert new data
+        const result = await Listing.insertMany(initData.data); // or initData if no .data
+        console.log(`${result.length} documents were inserted`);
+    } catch (error) {
+        console.error("Error initializing database:", error);
+    }
+};
 
 initDB();
