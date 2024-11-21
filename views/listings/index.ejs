@@ -1,23 +1,26 @@
 <% layout("/layouts/boilerplate") %>
 <body>
     <h3>All Listings</h3>
-    <!-- <form method="GET" action="/listings/new">
-        <button>Create new Listing</button>
-    </form> -->
 
-    <div class="row">
-<% for (let i=0; i < allListings.length; i++) { %>
-    <div class="card" style="width: 20rem;">
-        <img src="<%= allListings[i].image %>" class="card-img-top" alt="Listing Images">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-                <%= allListings[i].title %> <br>
-                    &#8377; <%= allListings[i].price.toLocaleString("en-IN") %> /night
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-xs-1 justify-content-center">
+    <% for (let i=0; i < allListings.length; i++) { %>
+    <a href="/listings/<%= allListings[i]._id %>" class="listing_link">
+    <div class="card col">
+    <img src="<%= allListings[i].image %>" class="card-img-top" alt="Listing Images" style="height:20rem">
+
+    <div class="card-img-overlay"> 
     </div>
+    <div class="card-body">
+        <p class="card-text">
+            <b>
+                <%= allListings[i].title %> <br>
+            </b>
+            &#8377; <%= allListings[i].price.toLocaleString("en-IN") %> /night
+        </p>
+    </div>
+    </div>
+    </a>
+    
     <% } %>
 
     </div>

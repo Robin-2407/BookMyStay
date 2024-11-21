@@ -1,79 +1,46 @@
 <% layout("layouts/boilerplate") %>
 
 <body>
-    <h3>Create New Listing</h3>
-    <form method="POST" action="/listings">
-        <div>
-            <label for="title">Title:</label>
-            <input type="text" name="title" id="title" required>
-        </div>
-        <div>
-            <label for="description">Description:</label>
-            <textarea name="description" id="description" required></textarea>
-        </div>
-        <div>
-            <label for="image">Image URL:</label>
-            <input type="text" name="image" id="image" required>
-        </div>
-        <div>
-            <label for="price">Price:</label>
-            <input type="number" name="price" id="price" min="0" required>
-        </div>
-        <div>
-            <label for="location">Location:</label>
-            <input type="text" name="location" id="location" required>
-        </div>
-        <div>
-            <label for="country">Country:</label>
-            <input type="text" name="country" id="country" required>
-        </div>
-        <!-- <div>
-            <label for="category">Category:</label>
-            <select name="category" id="category" required>
-                <option value="">Select a category</option>
-                <option value="Rooms">Rooms</option>
-                <option value="Iconic Cities">Iconic Cities</option>
-                <option value="Mountains">Mountains</option>
-                <option value="Castles">Castles</option>
-                <option value="Amazing Pools">Amazing Pools</option>
-                <option value="Camping">Camping</option>
-                <option value="Farms">Farms</option>
-                <option value="Arctic">Arctic</option>
-            </select>
-        </div> -->
-        <!-- <div>
-            <label for="bedrooms">Bedrooms:</label>
-            <input type="number" name="bedrooms" id="bedrooms" min="1" required>
-        </div>
-        <div>
-            <label for="bathrooms">Bathrooms:</label>
-            <input type="number" name="bathrooms" id="bathrooms" min="1" required>
-        </div> -->
-        <!-- <div>
-            <label for="guests">Max Guests:</label>
-            <input type="number" name="guests" id="guests" min="1" required>
-        </div> -->
-        <!-- <div>
-            <h4>Amenities:</h4>
-            <input type="checkbox" id="wifi" name="amenities[]" value="Wifi">
-            <label for="wifi">Wifi</label>
+    
+    <div class="row offset-2 mt-5">
+        <div class="col-8">
+            <h3>Create New Listing</h3>
+            <form method="POST" action="/listings">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title:</label>
+                    <input type="text" name="title" id="title" class="form-control" placeholder="Enter listing title" required>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description:</label>
+                    <textarea name="description" id="description" class="form-control" placeholder="Enter listing description" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image URL:</label>
+                    <input type="text" name="image" id="image" class="form-control" placeholder="Enter image URL">
+                </div>
 
-            <input type="checkbox" id="tv" name="amenities[]" value="TV">
-            <label for="tv">TV</label>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price:</label>
+                    <input type="number" name="price" id="price" class="form-control" min="0" placeholder="Enter price" required>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="location" class="form-label">Location:</label>
+                        <input type="text" name="location" id="location" class="form-control" placeholder="Enter location" required>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label for="country" class="form-label">Country:</label>
+                        <input type="text" name="country" id="country" class="form-control" placeholder="Enter country" required>
+                    </div>
+                </div>
 
-            <input type="checkbox" id="kitchen" name="amenities[]" value="Kitchen">
-            <label for="kitchen">Kitchen</label>
+                <br>
+                <button class="btn btn-dark add-btn" type="submit">Add Listing</button>
+                <br> <br>
+            </form>
+        </div>
 
-            <input type="checkbox" id="ac" name="amenities[]" value="Air Conditioning">
-            <label for="ac">Air Conditioning</label>
-
-            <input type="checkbox" id="parking" name="amenities[]" value="Free Parking">
-            <label for="parking">Free Parking</label>
-
-            <input type="checkbox" id="pool" name="amenities[]" value="Pool">
-            <label for="pool">Pool</label>
-        </div> -->
-        <button type="submit">Add Listing</button>
-    </form>
+    </div>
+    
     <!-- <a href="/listings">Back to All Listings</a> -->
 </body>
