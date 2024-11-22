@@ -1,152 +1,176 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* BODY */
-html, body {
-    height: 100%; /* Ensure the body takes full height */
+html,
+body {
+  height: 100%;
 }
 
 body {
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Stack children vertically */
+  display: flex;
+  flex-direction: column;
 }
 
 .body {
-    font-family: "Plus Jakarta Sans", sans-serif !important;
+  font-family: "Plus Jakarta Sans", sans-serif !important;
 }
 
 /* CONTAINER */
 .container {
-    flex: 1; /* Allow the container to grow and take available space */
+  margin-top: 2rem;
+  flex: 1;
 }
 
 /* NAVBAR */
 .navbar {
-    height: 4rem;
-    background-color: white;
+  height: 4rem;
+  background-color: white;
 }
 
 .navbar-brand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .navbar-brand h3 {
-    padding-top: 1.1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fe424d;
+  padding-top: 1.1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fe424d;
 }
 
 .fa-hotel {
-    color: #fe424d;
-    font-size: 2rem;
+  color: #fe424d;
+  font-size: 2rem;
 }
 
 .nav-link {
-    font-size: 1.2rem !important;
-    color: #222222 !important;
+  font-size: 1.2rem !important;
+  color: #222222 !important;
 }
 
 .listing_link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* CARD */
 .card {
-    border: none !important;
-    margin-bottom: 2rem;
+  border: none !important;
+  margin-bottom: 2rem;
 }
 
 .card-img-top {
-    border-radius: 1rem !important;
-    width: 100% !important;
-    object-fit: cover !important;
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
 }
 
 .card-body {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 .card-text p {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .card-img-overlay {
-    opacity: 0;
-    transition: all 0.3s;
+  opacity: 0;
+  transition: all 0.3s;
 }
 
 .card-img-overlay:hover {
-    opacity: 0.2;
-    background-color: white;
+  opacity: 0.2;
+  background-color: white;
 }
 
 .add-btn {
-    background-color: #fe424d !important;
-    border: none !important;
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+/* Show Page */
+.show-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.show-img {
+  height: 40vh;
+  /* max-width: 30vw; */
+  object-fit: cover;
+}
+
+.show-btns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem !important;
 }
 
 /* FOOTER */
 footer {
-    width: 100%;
-    background-color: #f0f0f0;
-    padding: 1rem;
-    text-align: center;
-    color: #222222;
-    margin-top: auto; /* Push footer to the bottom */
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 1rem;
+  text-align: center;
+  color: #222222;
+  margin-top: auto; /* Push footer to the bottom */
 }
 
 .f-info-links {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .f-info-links a {
-    text-decoration: none;
-    margin: 0 0.5rem;
-    color: #666;
-    transition: color 0.2s ease;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  color: #666;
+  transition: color 0.2s ease;
 }
 
 .f-info-links a:hover {
-    color: #333;
+  color: #333;
 }
 
 .f-info {
-    height: 8rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .f-info-socials i {
-    font-size: 1.3rem;
+  font-size: 1.3rem;
 }
 
 .f-info-socials {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .f-info-socials a {
-    margin: 0 0.5rem;
-    color: #666;
-    transition: color 0.2s ease;
+  margin: 0 0.5rem;
+  color: #666;
+  transition: color 0.2s ease;
 }
 
 .f-info-socials a:hover {
-    color: #333;
+  color: #333;
 }
 
-
 .edit-link {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
